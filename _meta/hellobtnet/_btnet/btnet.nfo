@@ -1,0 +1,28 @@
+This torrent is designed to be browsed in web browser by using
+open source software named BTnet:
+ - git.mrcyjanek.net/mrcyjanek/btnet
+ - github.com/mrcyjanek/btnet
+
+As an alternative you can simply leech this torrent and run your
+favourite web server inside, for example by using
+ - python -m http.server --cgi 8080
+ - npx http-server
+
+Or simply browser thru the content using file:/// (note that
+links may be broken because root filesystem of your is not root
+of this bitsite)
+
+When using BTnet you seed your your sites when you visit them,
+but keep in mind that it may be more efficient to grab the 
+magnet link and add it to your bittorrent client, and open ports
+because when browsing this site using btnet you are less likely
+able to bypass NAT restrictions.
+
+If future versions of BTnet will allow fetching newer versions
+of the bitsites, pgp.asc will be used to sign the btnet.json file
+which contain build id.
+
+Fancy template by https://github.com/adrienjoly/landing-page-boilerplate
+
+That's all I had to say. This torrent website (bitsite) was
+created by Czarek Nakamoto <mrcyjanek.net> on 03.12.2021
