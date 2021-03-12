@@ -9,7 +9,7 @@ BTnet - implementation of peer to peer www network using BitTorrent network.
 
 ### TODO
 
- - Updates (fetch newer version signet by _btnet/pgp.asc)
+ - Updates (fetch newer version signed by _btnet/pgp.asc)
  - Minimal api to allow dynamic content.
 
 # Setup
