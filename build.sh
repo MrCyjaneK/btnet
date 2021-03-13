@@ -41,6 +41,6 @@ do
     then
         end=".exe"
     fi
-    GOOS=$p1 GOARCH=$p2 go build -o build/BTnet_"$p1"_"$p2""$end"
+    GOOS=$p1 GOARCH=$p2 go build -o build/btnet_"$p1"_"$p2""$end"
     echo "OK!"
 done
