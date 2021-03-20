@@ -7,6 +7,8 @@ BTnet - implementation of peer to peer www network using BitTorrent network.
  - Works in any browser
  - Simple and easy to use and implement
 
+NOTE: main development happens at [git.mrcyjanek.net](https://git.mrcyjanek.net/mrcyjanek/btnet).
+
 ### TODO
 
  - Updates (fetch newer version signed by _btnet/pgp.asc)
