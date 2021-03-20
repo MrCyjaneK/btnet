@@ -1,0 +1,19 @@
+{
+  "numwant": 10,
+  "uploaded": 0,
+  "downloaded": 0,
+  "left": null,
+  "event": "started",
+  "action": "announce",
+  "info_hash": "GªÖ©Ã®|_ÝÁ\u0013¢\\\u0016,nà¶",
+  "peer_id": "-WW0014-iT6/ulRljBPl",
+  "offers": [
+    {
+      "offer": {
+        "type": "offer",
+        "sdp": "v=0\r\no=- 6043314340799058348 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=msid-semantic: WMS\r\nm=application 62324 UDP/DTLS/SCTP webrtc-datachannel\r\nc=IN IP4 45.56.95.146\r\na=candidate:1980850359 1 udp 2113937151 3862c5a9-fa5b-4d5c-92df-daf3c30d3531.local 49373 typ host generation 0 network-cost 999\r\na=candidate:842163049 1 udp 1677729535 188.147.36.131 31502 typ srflx raddr 0.0.0.0 rport 0 generation 0 network-cost 999\r\na=candidate:1650739110 1 udp 33562879 45.56.95.146 62324 typ relay raddr 188.147.36.131 rport 31502 generation 0 network-cost 999\r\na=ice-ufrag:VljE\r\na=ice-pwd:QDEBVWAXXZfiNOVr9YjXBmks\r\na=fingerprint:sha-256 9E:3B:6A:35:E8:29:B5:2B:44:9D:71:47:EC:3E:1D:D8:39:A8:BB:62:1C:88:0B:5B:A9:72:53:66:4C:63:B6:8F\r\na=setup:actpass\r\na=mid:0\r\na=sctp-port:5000\r\na=max-message-size:262144\r\n"
+      },
+      "offer_id": "3\u0016\n$¦ä|õ×ÑäJ0r" // I'm not quite sute what is this,
+    }
+  ]
+}
