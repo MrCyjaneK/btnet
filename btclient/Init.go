@@ -22,6 +22,7 @@ func Init() {
 	config.HTTPUserAgent = "BTnet v0.0.0 (websites over torrent)"
 	config.ExtendedHandshakeClientVersion = "btnet dev 20210311"
 	config.Bep20 = "-BN0000-"
+	config.Callbacks.NewPeer = append(config.Callbacks.NewPeer, handleNewPeer)
 
 	cl, err = torrent.NewClient(config)
 	if err != nil {
