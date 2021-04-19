@@ -25,7 +25,7 @@ do
     GOOS=$p1 GOARCH=$p2 go build -o build/btnet_"$p1"_"$p2""$end"
     if [[ "$p1" == "linux" ]];
     then
-        case "$p1" in
+        case "$p2" in
         "386") arch="i386" ;;
         "amd64") arch="amd64" ;;
         "arm") arch="armhf" ;;
