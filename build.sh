@@ -2,32 +2,13 @@
 set -e
 rm -rf build || true &>/dev/null
 mkdir build
+GITVERSION="+git"$(date +%Y%m%d%H%M)"."$(git log -n 1 | tr " " "\n" | head -2 | tail -1 | head -c 7)
 #for pair in $(go tool dist list)
 for pair in \
-freebsd/386 \
-freebsd/amd64 \
-freebsd/arm \
-freebsd/arm64 \
 linux/386 \
 linux/amd64 \
 linux/arm \
 linux/arm64 \
-linux/mips \
-linux/mips64 \
-linux/mips64le \
-linux/mipsle \
-linux/ppc64 \
-linux/ppc64le \
-linux/riscv64 \
-linux/s390x \
-netbsd/386 \
-netbsd/amd64 \
-netbsd/arm \
-netbsd/arm64 \
-openbsd/386 \
-openbsd/amd64 \
-openbsd/arm \
-openbsd/arm64 \
 windows/386 \
 windows/amd64 \
 windows/arm
@@ -42,5 +23,23 @@ do
         end=".exe"
     fi
     GOOS=$p1 GOARCH=$p2 go build -o build/btnet_"$p1"_"$p2""$end"
+    if [[ "$p1" == "linux" ]];
+    then
+        a=$(pwd)
+        mkdir -p build/$p2
+        cd dist/debian
+        GOOS=$p1 GOARCH=$p2 checkinstall --install=no \
+        --pkgname="btnet" \
+        --pkgversion=1.0.0"$GITVERSION" \
+        --pkgarch="$arch" \
+        --pkgrelease=1 \
+        --pkgsource="git.mrcyjanek.net/mrcyjanek/btnet" \
+        --pakdir="../$p2" \
+        --maintainer="cyjan@mrcyjanek.net" \
+        --provides="btnet" \
+        -D \
+        -y
+        cd "$a"
+    fi
     echo "OK!"
 done
