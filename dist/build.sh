@@ -19,22 +19,23 @@ do
     cd "$builddir"
     name=$(basename $addon)
     BINNAME="btnet-$name"
-    echo "/ Linux builds - daemon."
-    echo -n -e "|- bin/$BINNAME-$name""_linux_386 "
+    echo "/ Linux builds - addon($name)."
+    echo -n -e "|- bin/$BINNAME""_linux_386 "
     CGO_ENABLED=1 HOST=i686-linux-gnu CC=i686-linux-gnu-gcc CXX=i686-linux-gnu-g++ PKG_CONFIG_PATH=/usr/lib/i686-linux-gnu/pkgconfig/ GOOS=linux GOARCH=386 go build -o bin/"$BINNAME"_linux_386 $addon && ok
-    echo -n -e "|- bin/$BINNAME-$name""_linux_amd64 "
+    echo -n -e "|- bin/$BINNAME""_linux_amd64 "
     CGO_ENABLED=1 GOOS=linux GOARCH=amd64   go build -o bin/"$BINNAME"_linux_amd64 ../../ && ok
-    echo -n -e "|- bin/$BINNAME-$name""_linux_arm "
+    echo -n -e "|- bin/$BINNAME""_linux_arm "
     CGO_ENABLED=1 HOST=arm-linux-gnueabihf CC=arm-linux-gnueabihf-gcc CXX=arm-linux-gnueabihf-g++ PKG_CONFIG_PATH=/usr/lib/arm-linux-gnueabihf/pkgconfig/ GOOS=linux GOARCH=arm go build -o bin/"$BINNAME"_linux_arm $addon && ok
-    echo -n -e "\_ bin/$BINNAME-$name""_linux_arm64 "
+    echo -n -e "\_ bin/$BINNAME""_linux_arm64 "
     CGO_ENABLED=1 HOST=aarch64-linux-gnu CC=aarch64-linux-gnu-gcc CXX=aarch64-linux-gnu-g++ PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig/ GOOS=linux GOARCH=arm64 go build -o bin/"$BINNAME"_linux_arm64 $addon && ok
     echo "/ Windows builds - daemon"
-    echo -n -e "|- bin/$BINNAME-$name""_windows_386.exe "
+    echo -n -e "|- bin/$BINNAME""_windows_386.exe "
     CGO_ENABLED=1 HOST=i686-w64-mingw32 CC=i686-w64-mingw32-gcc CXX=i686-w64-mingw32-g++ GOOS=windows GOARCH=386 go build -o bin/"$BINNAME"_windows_386.exe $addon && ok
-    echo -n -e "|- bin/$BINNAME-$name""_windows_amd64.exe "
+    echo -n -e "|- bin/$BINNAME""_windows_amd64.exe "
     CGO_ENABLED=1 HOST=x86_64-w64-mingw32 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ GOOS=windows GOARCH=amd64 go build -o bin/"$BINNAME"_windows_amd64.exe $addon && ok
     for arch in arm64 arm amd64 386
     do
+        cd "$builddir"
         case "$arch" in
         "386") ar="i386" ;;
         "amd64") ar="amd64" ;;
@@ -45,8 +46,8 @@ do
         cd debian-deb-$name-$arch
         pwd
         pwd
-        addon="../$addon"
-        cat $addon/description-pak > description-pak
+        addonn="../$addon"
+        cat $addonn/description-pak > description-pak
         GOOS="linux" GOARCH=$arch BINNAME="btnet-$name" checkinstall --install=no \
             --pkgname="btnet-$name" \
             --pkgversion=1.0.0"$vcode" \
@@ -67,7 +68,7 @@ echo "/ Linux builds - daemon."
 echo -n -e "|- bin/$BINNAME""_linux_386 "
 CGO_ENABLED=1 HOST=i686-linux-gnu CC=i686-linux-gnu-gcc CXX=i686-linux-gnu-g++ PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig/ GOOS=linux GOARCH=386 go build -o bin/"$BINNAME"_linux_386 ../../ && ok
 echo -n -e "|- bin/$BINNAME""_linux_amd64 "
-CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o bin/jwstudy_linux_amd64 ../../ && ok
+CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o bin/"$BITNAME"_linux_amd64 ../../ && ok
 echo -n -e "|- bin/$BINNAME""_linux_arm "
 CGO_ENABLED=1 HOST=arm-linux-gnueabihf CC=arm-linux-gnueabihf-gcc CXX=arm-linux-gnueabihf-g++ PKG_CONFIG_PATH=/usr/lib/arm-linux-gnueabihf/pkgconfig/ GOOS=linux GOARCH=arm go build -o bin/"$BINNAME"_linux_arm ../../ && ok
 echo -n -e "|_ bin/$BINNAME""_linux_arm64 "
@@ -84,7 +85,7 @@ do
     cd "$builddir"
     cp ../debian debian-deb-$arch -r
     cd debian-deb-$arch
-    GOOS=$p1 GOARCH=$p2 BINNAME=btnet checkinstall --install=no \
+    GOOS="linux" GOARCH=$arch BINNAME=btnet checkinstall --install=no \
         --pkgname="btnet" \
         --pkgversion=1.0.0"$vcode" \
         --pkgarch="$arch" \
