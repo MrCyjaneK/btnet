@@ -9,7 +9,7 @@ import (
 	"github.com/sqweek/dialog"
 )
 
-var note = `Use this simple key to generate PGP key.
+var note = `Use this simple program to generate PGP key.
 
 Please note, that for performace reasons you should use one PGP key per site, because PGP key is used to find newer version of website, so using one key would cause some mess.
 But, we can't tell you to not do that, it's an open network :)`
