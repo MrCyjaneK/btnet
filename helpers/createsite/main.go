@@ -73,7 +73,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	btnetjson, err := json.Marshal(BTnet)
+	btnetjson, err := json.MarshalIndent(BTnet, "", "    ")
 	if err != nil {
 		log.Fatal(err)
 	}
