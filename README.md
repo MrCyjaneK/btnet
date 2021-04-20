@@ -19,7 +19,7 @@ NOTE: main development happens at [git.mrcyjanek.net](https://git.mrcyjanek.net/
 
 # Setup
 
- - First you need to download binary, or compile it yourself (github's releases tab have it compiled.)
+ - First you need to download binary, or compile it yourself [link to builds on my ci](https://static.mrcyjanek.net/laminarci/build-btnet/latest/)
     - on debian you can run:
     
     Install my APT repo to your system. Make sure to run this command as root
