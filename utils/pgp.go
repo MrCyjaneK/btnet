@@ -210,7 +210,7 @@ func createEntityFromKeys(pubKey *packet.PublicKey, privKey *packet.PrivateKey) 
 		CompressionConfig: &packet.CompressionConfig{
 			Level: 9,
 		},
-		RSABits: 4096,
+		RSABits: pgpbits,
 	}
 	currentTime := config.Now()
 	uid := packet.NewUserId("", "", "")

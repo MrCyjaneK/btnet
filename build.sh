@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "[DEPRECATED] - Do not use this build script... use dist/build.sh"
+sleep 15
 set -e
 rm -rf build || true &>/dev/null
 mkdir build
@@ -34,7 +36,7 @@ do
         a=$(pwd)
         mkdir -p build/$p2
         cd dist/debian
-        GOOS=$p1 GOARCH=$p2 checkinstall --install=no \
+        GOOS=$p1 GOARCH=$p2 BINNAME=btnet checkinstall --install=no \
         --pkgname="btnet" \
         --pkgversion=1.0.0"$GITVERSION" \
         --pkgarch="$arch" \

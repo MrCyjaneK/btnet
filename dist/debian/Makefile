@@ -1,2 +1,2 @@
 install:
-	cp ../../build/btnet_${GOOS}_${GOARCH} /usr/bin/btnet
+	cp ../../out/bin/${BINNAME}_${GOOS}_${GOARCH} /usr/bin/${BINNAME}

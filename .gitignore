@@ -2,3 +2,4 @@
 build/
 onion/
 *.deb
+dist/out
